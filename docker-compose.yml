@@ -1,0 +1,13 @@
+services:
+  my-web:
+    image: nginxinc/nginx-unprivileged:alpine
+    restart: unless-stopped
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}

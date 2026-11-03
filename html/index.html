@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloudflare Tunnel ハンズオン</title>
+  <style>
+    :root {
+      --bg-color: #1c1917;
+      --card-bg: #292524;
+      --accent-color: #f59e0b;
+      --badge-color: #10b981;
+      --text-main: #fafaf9;
+      --text-sub: #a8a29e;
+      --border-subtle: #44403c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent-color);
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 2.25rem 1.75rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 158, 11, 0.15);
+      text-align: center;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(16, 185, 129, 0.15);
+      color: var(--badge-color);
+      border: 1px solid var(--badge-color);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--badge-color);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--badge-color);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .profile-box {
+      background-color: rgba(28, 25, 23, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      margin-bottom: 1.75rem;
+      text-align: left;
+    }
+
+    .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      word-break: break-word;
+    }
+
+    .message {
+      font-size: 1rem;
+      color: var(--text-main);
+      word-break: break-word;
+    }
+
+    .security-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background-color: #1c1917;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-sub);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.75rem 1.25rem;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      .name {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      TUNNEL CONNECTED
+    </div>
+
+    <h1>Hello from Docker! 🚀</h1>
+    <p class="subtitle">Cloudflare Tunnel 経由で安全にコンテナを公開中</p>
+
+    <section class="profile-box">
+      <div class="label">Owner / 名前</div>
+      <!-- ★ここを自分の名前や好きな文字に書き換えて保存してみよう！ -->
+      <div class="name">名無しのエンジニア</div>
+
+      <div class="label">Message / 一言メッセージ</div>
+      <!-- ★ここを自分の名前や好きな文字に書き換えて保存してみよう！ -->
+      <p class="message">ポート開放ゼロでローカル環境から世界に公開できました！🎉</p>
+    </section>
+
+    <div class="security-tags">
+      <span class="tag">🔒 ポート開放ゼロ</span>
+      <span class="tag">🛡️ 非root実行 (UID 101)</span>
+      <span class="tag">🧱 ブリッジ隔離</span>
+    </div>
+  </main>
+</body>
+</html>
