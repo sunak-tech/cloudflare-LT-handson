@@ -49,7 +49,7 @@ docker pull cloudflare/cloudflared:latest
 
 #### 方法A: `git clone` を使う場合
 ```bash
-git clone https://github.com/<あなたのリポジトリURL>/cloudflare-LT-handson.git
+git clone https://github.com/sunak-tech/cloudflare-LT-handson.git
 cd cloudflare-LT-handson
 ```
 
